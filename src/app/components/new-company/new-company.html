@@ -1,0 +1,165 @@
+<div class="w-full flex flex-col h-screen  items-center overflow-y-auto">
+  <form [formGroup]="newCompanyGroupForm" (ngSubmit)="submitForm()" >
+
+    <div class="w-fit  ">
+
+      <div class="flex flex row justify-between " >
+        <div class="p-4 w-70 flex flex-col gap-2">
+          <label class="font-bold text-xs font-inter ">
+            Įmonės pavadinimas
+          </label>
+          <input formControlName="companyName" class="w-full h-11 placeholder:text-sm
+          placeholder:text-gray-400 placeholder:font-light font-inter" hlmInput type="text" placeholder="Įveskite Įmonės pavadinimą"  />
+          @if (newCompanyGroupForm.get('companyName')?.invalid && newCompanyGroupForm.get('companyName')?.touched) {
+              <span class="text-red-500 text-xs ">
+              @if (newCompanyGroupForm.get('companyName')?.errors?.['required']) {
+               Įmonės pavadinimas privalomas
+                }
+                @if (newCompanyGroupForm.get('companyName')?.errors?.['minlength']) {
+                  Minimalus ilgis 2 simboliai
+                 }
+                @if (newCompanyGroupForm.get('companyName')?.errors?.['maxlength']) {
+                  Maksimalus ilgis 30 simbolių
+                  }
+              </span>
+            }
+        </div>
+
+
+        <div class="p-4 w-70 flex flex-col gap-2">
+          <label class="font-bold text-xs " style="font-family: 'Inter', sans-serif;">
+            Įmonės kodas
+          </label>
+          <input formControlName="companyCode"  class="w-full h-11 placeholder:text-sm
+          placeholder:text-gray-400 placeholder:font-light font-inter" hlmInput type="text" placeholder="Įveskite įmonės kodą"  />
+              @if (newCompanyGroupForm.get('companyCode')?.invalid && newCompanyGroupForm.get('companyCode')?.dirty){
+                <span class="text-red-500 text-xs">
+                @if (newCompanyGroupForm.get('companyCode')?.errors?.['onlyNumbers']) {
+                  Tik skaitmenys
+                }
+              </span>
+
+              }
+        </div>
+
+      </div>
+
+
+      <div class="flex flex row justify-between " >
+
+        <div class="p-4 w-70 flex flex-col gap-2">
+          <label class="font-bold text-xs font-inter" >
+            PVM kodas
+          </label>
+          <input formControlName="pvmCode" class="w-full h-11 placeholder:text-sm
+          placeholder:text-gray-400 placeholder:font-light font-inter" hlmInput type="text" placeholder="Įveskite PVM kodą"/>
+          @if(newCompanyGroupForm.get('pvmCode')?.invalid && newCompanyGroupForm.get('pvmCode')?.dirty){
+            <span class="text-red-500 text-xs">
+              @if(newCompanyGroupForm.get('pvmCode')?.errors?.['invalidPvm']){
+                Turi prasidėti LT ir testis skaičiais
+              }
+
+            </span>
+
+          }
+        </div>
+
+        <div class="p-4 w-70 flex flex-col gap-2">
+          <label class="font-bold text-xs font-inter " >
+            Adresas
+          </label>
+          <input  class="w-full h-11 placeholder:text-sm
+           placeholder:text-gray-400 placeholder:font-light font-inter" hlmInput type="text" placeholder="Įveskite adresą"  />
+        </div>
+
+      </div>
+
+
+      <div class="flex flex row justify-between " >
+
+        <div class="p-4 w-70 flex flex-col gap-2">
+          <label class="font-bold text-xs font-inter " >
+            El. pašto adresas
+          </label>
+          <input formControlName="companyEmail" class="w-full h-11 placeholder:text-sm
+          placeholder:text-gray-400 placeholder:font-light font-inter" hlmInput type="email" placeholder="Įveskite el. paštą" />
+          @if(newCompanyGroupForm.get('companyEmail')?.invalid && newCompanyGroupForm.get('companyEmail')?.touched){
+            <span class="text-red-500 text-xs">
+             @if(newCompanyGroupForm.get('companyEmail')?.errors?.['required']) {
+               El. paštas privalomas
+             }
+              @if(newCompanyGroupForm.get('companyEmail')?.errors?.['email']) {
+                Netinkamas el. pašto formatas
+              }
+            </span>
+          }
+        </div>
+
+        <div class="p-4 w-70 flex flex-col gap-2">
+          <label class="font-bold text-xs font-inter " >
+            Tel. numeris
+          </label>
+          <input formControlName="companyPhone" class="w-full h-11 placeholder:text-sm
+          placeholder:text-gray-400 placeholder:font-light font-inter" hlmInput type="text" placeholder="Įveskite tel. numerį"  />
+
+
+          @if (newCompanyGroupForm.get('companyPhone')?.invalid &&
+          newCompanyGroupForm.get('companyPhone')?.touched) {
+            @let errors = newCompanyGroupForm.get('companyPhone')?.errors;
+            <span class="text-red-500 text-xs">
+              @if (errors?.['phonePrefix']){
+                Numeris privalo prasidėti +370
+              }
+              @if (errors?.['phoneOnlyNumbers']) {
+                Numerį privalo sudaryti skaičiai
+              }
+              @if (errors?.['phoneTooShort']){
+                Numeris per trumpas (minimum 10 simbolių)
+              }
+              @if (errors?.['phoneTooLong']){
+                Numeris per ilgas (maksimum 12 simbolių)
+              }
+            </span>
+          }
+
+
+        </div>
+
+      </div>
+
+      <h1 class="font-inter font-medium">Kontaktai</h1>
+
+      @for (contact of contacts; track $index;) {
+        @if (contacts.length > 1) {
+          <div class="pt-5">
+            <span class="font-inter font-light text-sm px-5">Kontaktas {{ $index + 1 }}</span>
+          </div>
+        }
+        <app-new-contact></app-new-contact>
+      }
+
+      <div class=" w-full  flex flex-row justify-between px-4">
+        <button (click)="addContact()" class=" bg-gray-100 flex items-center cursor-pointer  w-fit gap-2 p-3 rounded-lg">
+          <lucide-icon [img]="addClientIcon" size="18"></lucide-icon>
+          <span class="font-inter text-xs font-semibold">Pridėti naują</span>
+        </button>
+        @if (contacts.length>1){
+          <button (click)="removeContact()" class=" bg-gray-100 flex items-center cursor-pointer  w-fit gap-2 p-3 rounded-lg">
+            <lucide-icon [img]="removeContactIcon" size="18"></lucide-icon>
+            <span class="font-inter text-xs font-semibold">Pašalinti</span>
+          </button>
+        }
+      </div>
+
+
+
+      <div class="w-full flex justify-end px-5 pt-10 ">
+        <div class=" font-bold flex flex gap-10 row ">
+          <button class="font-extrabold font-inter " hlmBtn variant="outline" type="submit">Atšaukti</button>
+          <button class="font-extrabold font-inter" hlmBtn  [disabled]="!newCompanyGroupForm.valid" >Išsaugoti</button>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>

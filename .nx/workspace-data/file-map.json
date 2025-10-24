@@ -1,0 +1,151 @@
+{
+  "version": "6.0",
+  "nxVersion": "22.0.1",
+  "pathMappings": {
+    "@spartan-ng/helm/button": [
+      "./libs/ui/ui-button-helm/src/index.ts"
+    ],
+    "@spartan-ng/helm/utils": [
+      "./libs/ui/ui-utils-helm/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {},
+    "nonProjectFiles": [
+      {
+        "file": ".editorconfig",
+        "hash": "8037249353422744134"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "17738933498318317962"
+      },
+      {
+        "file": ".postcssrc.json",
+        "hash": "17460548602263189673"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "11934160580685414355"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "17406702432687230417"
+      },
+      {
+        "file": ".vscode/tasks.json",
+        "hash": "10093397977228577162"
+      },
+      {
+        "file": "README.md",
+        "hash": "11196555517210217333"
+      },
+      {
+        "file": "angular.json",
+        "hash": "9185448574306903967"
+      },
+      {
+        "file": "components.json",
+        "hash": "16224180875073320387"
+      },
+      {
+        "file": "libs/ui/ui-button-helm/src/index.ts",
+        "hash": "5168917203269790378"
+      },
+      {
+        "file": "libs/ui/ui-button-helm/src/lib/hlm-button.token.ts",
+        "hash": "9576183639981922411"
+      },
+      {
+        "file": "libs/ui/ui-button-helm/src/lib/hlm-button.ts",
+        "hash": "16430679004019150721"
+      },
+      {
+        "file": "libs/ui/ui-utils-helm/src/index.ts",
+        "hash": "1762895332825194971"
+      },
+      {
+        "file": "libs/ui/ui-utils-helm/src/lib/hlm.ts",
+        "hash": "2589154290145504468"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "2438021039113847364"
+      },
+      {
+        "file": "package.json",
+        "hash": "12156133702903371155"
+      },
+      {
+        "file": "public/favicon.ico",
+        "hash": "3988961587069885523"
+      },
+      {
+        "file": "src/app/app.config.ts",
+        "hash": "2830766725274472427"
+      },
+      {
+        "file": "src/app/app.css",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/app.html",
+        "hash": "3570407880480679396"
+      },
+      {
+        "file": "src/app/app.routes.ts",
+        "hash": "809736233805555256"
+      },
+      {
+        "file": "src/app/app.spec.ts",
+        "hash": "17918267594902279432"
+      },
+      {
+        "file": "src/app/app.ts",
+        "hash": "8562095976353183574"
+      },
+      {
+        "file": "src/app/components/new-company/new-company.html",
+        "hash": "14890854233024323177"
+      },
+      {
+        "file": "src/app/components/new-company/new-company.spec.ts",
+        "hash": "9561882171482366036"
+      },
+      {
+        "file": "src/app/components/new-company/new-company.ts",
+        "hash": "14377134385408409896"
+      },
+      {
+        "file": "src/index.html",
+        "hash": "14742574066695220167"
+      },
+      {
+        "file": "src/main.ts",
+        "hash": "10405740721546735325"
+      },
+      {
+        "file": "src/styles.css",
+        "hash": "5972793350790556162"
+      },
+      {
+        "file": "tailwind.config.js",
+        "hash": "6658888657232794808"
+      },
+      {
+        "file": "tsconfig.app.json",
+        "hash": "10136459155298117738"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "5584682871602922656"
+      },
+      {
+        "file": "tsconfig.spec.json",
+        "hash": "15504553596141903120"
+      }
+    ]
+  },
+  "externalNodesHash": "7827838088213736065"
+}

@@ -1,0 +1,46 @@
+<div [formGroup]="contactGroupForm">
+
+  <div class="flex flex row justify-between">
+    <div class="p-4 w-70 flex flex-col gap-2">
+      <label class="font-bold text-xs font-inter">
+        Vardas
+      </label>
+      <input formControlName="firstName"
+             class="w-full h-11 placeholder:text-sm placeholder:text-gray-400 placeholder:font-light font-inter"
+             hlmInput type="text" placeholder="Įveskite vardą" />
+    </div>
+
+    <div class="p-4 w-70 flex flex-col gap-2">
+      <label class="font-bold text-xs font-inter">
+        Pavardė
+      </label>
+      <input formControlName="lastName"
+             class="font-inter w-full h-11 placeholder:text-sm placeholder:text-gray-400 placeholder:font-light"
+             hlmInput type="text" placeholder="Įveskite pavardę" />
+    </div>
+
+  </div>
+
+  <div class="flex flex row justify-between">
+
+    <div class="p-4 w-70 flex flex-col gap-2">
+      <label class="font-bold text-xs font-inter">
+        Pareigos
+      </label>
+      <input formControlName="position"
+             class="font-inter w-full h-11 placeholder:text-sm placeholder:text-gray-400 placeholder:font-light"
+             hlmInput type="text" placeholder="Įveskite pareigas" />
+    </div>
+
+    <div class="p-4 w-70 flex flex-col gap-2">
+      <label class="font-bold font-inter text-xs">
+        Tel. numeris
+      </label>
+      <input formControlName="phoneNumber"
+             class="font-inter w-full h-11 placeholder:text-sm placeholder:text-gray-400 placeholder:font-light"
+             hlmInput type="text" placeholder="Įveskite tel. numerį" />
+    </div>
+
+  </div>
+
+</div>
