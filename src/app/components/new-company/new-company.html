@@ -1,7 +1,10 @@
-<div class="w-full flex flex-col h-screen  items-center overflow-y-auto">
+<div class="w-full flex flex-col h-full my-5  items-center overflow-y-auto justify-center ">
   <form [formGroup]="newCompanyGroupForm" (ngSubmit)="submitForm()" >
 
-    <div class="w-fit  ">
+    <div class="w-fit   ">
+      <div  class="flex w-full p-5">
+        <h3 class="font-bold text-[1.5rem]">Pridėti įmonę</h3>
+      </div>
 
       <div class="flex flex row justify-between " >
         <div class="p-4 w-70 flex flex-col gap-2">
@@ -139,12 +142,12 @@
       }
 
       <div class=" w-full  flex flex-row justify-between px-4">
-        <button (click)="addContact()" class=" bg-gray-100 flex items-center cursor-pointer  w-fit gap-2 p-3 rounded-lg">
+        <button type="button" (click)="addContact()" class=" bg-gray-100 flex items-center cursor-pointer  w-fit gap-2 p-3 rounded-lg">
           <lucide-icon [img]="addClientIcon" size="18"></lucide-icon>
           <span class="font-inter text-xs font-semibold">Pridėti naują</span>
         </button>
         @if (contacts.length>1){
-          <button (click)="removeContact()" class=" bg-gray-100 flex items-center cursor-pointer  w-fit gap-2 p-3 rounded-lg">
+          <button type="button" (click)="removeContact()" class=" bg-gray-100 flex items-center cursor-pointer  w-fit gap-2 p-3 rounded-lg">
             <lucide-icon [img]="removeContactIcon" size="18"></lucide-icon>
             <span class="font-inter text-xs font-semibold">Pašalinti</span>
           </button>
@@ -155,11 +158,18 @@
 
       <div class="w-full flex justify-end px-5 pt-10 ">
         <div class=" font-bold flex flex gap-10 row ">
-          <button class="font-extrabold font-inter " hlmBtn variant="outline" type="submit">Atšaukti</button>
-          <button class="font-extrabold font-inter" hlmBtn  [disabled]="!newCompanyGroupForm.valid" >Išsaugoti</button>
+          <button  (click)="exitForm()" class="font-extrabold font-inter cursor-pointer" hlmBtn variant="outline" type="button">Atšaukti</button>
+          <button type="submit" class="font-extrabold font-inter cursor-pointer flex gap-5" hlmBtn  [disabled]="!newCompanyGroupForm.valid" >
+            @if (isLoading()) {
+              <hlm-spinner class="size-6" />
+            }Išsaugoti</button>
         </div>
 
       </div>
     </div>
+
+
+
+
   </form>
 </div>
