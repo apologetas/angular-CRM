@@ -1,0 +1,50 @@
+<div class="bg-white w-fit p-20 rounded-2xl">
+  <div class="w-full flex justify-center mb-10">
+    <span class="font-bold text-xl"
+          style="font-family: 'Inter', sans-serif;"> Prisijungimas</span>
+  </div>
+
+  <form class="flex flex-col  w-full" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+    <div class="p-4 w-70 flex flex-col gap-2">
+      <label class="font-bold text-xs text-gray-800" style="font-family: 'Inter', sans-serif;">
+        El. paštas
+      </label>
+      <input
+        formControlName="email"
+        class="w-full h-11 placeholder:text-sm placeholder:text-gray-400 placeholder:font-light font-inter"
+        hlmInput
+        type="email"
+        placeholder="Įveskite el paštą" />
+    </div>
+
+    <div class="p-4 w-70 flex flex-col gap-2">
+      <label class="font-bold text-xs text-gray-800" style="font-family: 'Inter', sans-serif;">
+        Slaptažodis
+      </label>
+      <input
+        formControlName="password"
+        class="w-full h-11 placeholder:text-sm placeholder:text-gray-400 placeholder:font-light font-inter"
+        hlmInput
+        type="password"
+        placeholder="Įveskite slapažodį" />
+    </div>
+
+    <div class="p-4 mt-5">
+      <button class=" py-5 w-full font-semibold text-xs hover:cursor-pointer" style="font-family: 'Inter', sans-serif;" type="submit" hlmBtn>
+        Prisijungti
+      </button>
+    </div>
+
+
+
+  </form>
+
+  <div class="w-full flex justify-end px-5 pt-1">
+    <a routerLink="/auth/register" class="text-sm  text-gray-600 w-fit cursor-pointer">
+      Neturite paskyros? Registracija
+    </a>
+
+  </div>
+
+</div>

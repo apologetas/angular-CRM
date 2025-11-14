@@ -6,7 +6,10 @@ import { providePrimeNG } from 'primeng/config';
 import { MessageService } from 'primeng/api';
 import { routes } from './app.routes';
 import Aura from '@primeuix/themes/aura';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
 
+import { environment } from './environments/environment';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -19,6 +22,9 @@ export const appConfig: ApplicationConfig = {
       theme: {
         preset: Aura
       },
-    })
+    }),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
+
   ]
 };

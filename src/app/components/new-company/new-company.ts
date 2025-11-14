@@ -36,16 +36,16 @@ export class NewCompany {
 
   constructor(private companyService: CompanyService, private router: Router) {
     this.newCompanyGroupForm = new FormGroup({
-      companyName: new FormControl('Pav', [
+      companyName: new FormControl('', [
         Validators.required,
         Validators.minLength(2),
         Validators.maxLength(30)
       ]),
-      companyCode: new FormControl('38273823', [NewCompany.onlyNumbersValidator]),
-      pvmCode: new FormControl('LT323', [NewCompany.pvmValidator]),
-      companyAddress: new FormControl('adresas'),
-      companyEmail: new FormControl('email@dd.com', [Validators.required, Validators.email]),
-      companyPhone: new FormControl('+370576767', [NewCompany.phoneValidator]),
+      companyCode: new FormControl('', [NewCompany.onlyNumbersValidator]),
+      pvmCode: new FormControl('', [NewCompany.pvmValidator]),
+      companyAddress: new FormControl(''),
+      companyEmail: new FormControl('', [Validators.required, Validators.email]),
+      companyPhone: new FormControl('', [NewCompany.phoneValidator]),
     })
   }
 
@@ -73,7 +73,6 @@ export class NewCompany {
         .filter(contact =>
           contact.firstName || contact.lastName || contact.position || contact.phone
         );
-
       this.isLoading.set(true);
       this.resetContacts();
       this.companyService.addCompany(
@@ -90,6 +89,7 @@ export class NewCompany {
 
         next: (company) => {
           this.company.set(company);
+          this.exitForm();
 
         },
         error: (error) => {
